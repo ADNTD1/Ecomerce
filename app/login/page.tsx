@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // <-- Importa el router
 
 const LoginPage = () => {
+  const router = useRouter(); // <-- Inicializa el router
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,10 +22,7 @@ const LoginPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email,
-          password
-        }),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
@@ -32,8 +32,11 @@ const LoginPage = () => {
         return;
       }
 
-      
-      console.log("Login exitoso", data);
+      console.log("Sesión iniciada correctamente");
+
+       if (res.ok) {
+      router.push("/categories"); 
+      }
     } catch (err) {
       setError("Error de conexión");
     } finally {
