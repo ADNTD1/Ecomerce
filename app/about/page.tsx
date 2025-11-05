@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { Orbitron } from 'next/font/google';
-import logo_nvidia from "../public/images/logo_nvidia.png";
-import amd from "../public/Images/amd.png";
+
 const orbitron = Orbitron({ subsets: ['latin'], weight: ['700'] });
 
-export default function Home() {
+export default function contactPage() {
   return (
     <div
       style={{
@@ -17,6 +16,7 @@ export default function Home() {
         alignItems: "flex-end"
       }}
     >
+      {/* Frase en la parte superior con fuente cuadrada y moderna */}
       <h1
         className={orbitron.className}
         style={{
@@ -31,45 +31,41 @@ export default function Home() {
           marginTop: '100px'
         }}
       >
-        Todo lo que necesitas, a un clic de distancia
+        Contacta a nuestro soporte tecnico! 
       </h1>
 
-      <Image
-        src="/images/fondo.png"
-        alt="fondo"
-        width={400}
-        height={400}
+      <h2 
+      className={orbitron.className}
         style={{
           position: "fixed",
-          bottom: "0px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 1000
+          top: "50px",
+          width: "100%",
+          textAlign: "center",
+          color: "white",
+          fontSize: "1.5rem",
+          fontWeight: "500",
+          zIndex: 1001,
+          marginTop: '100px'
         }}
-      />
+      > 
+      Correo: </h2>
 
-      <Image
-        src={logo_nvidia} 
-        alt="Logo Nvidia"
-        width={150}
-        height={1500}
+      <h3
+      className={orbitron.className}
         style={{
-          position: "absolute",
-          bottom: "0px",
-          right: "1000px",
+          position: "fixed",
+          top: "90px",
+          width: "100%",
+          textAlign: "center",
+          color: "white",
+          fontSize: "1.5rem",
+          fontWeight: "500",
+          zIndex: 1001,
+          marginTop: '100px'
         }}
-      />
-      <Image
-        src={amd} 
-        alt="Logo amd"
-        width={50}
-        height={50}
-        style={{
-          position: "absolute",
-          bottom: "20px",
-          right: "100px",
-        }}
-      />
+      >
+        johanalbertoqf169@gmail.com
+      </h3>
     </div>
   );
 }
